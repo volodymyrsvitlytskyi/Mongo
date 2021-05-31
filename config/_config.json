@@ -1,0 +1,21 @@
+{
+  "test": {
+    "database": "mongodb://localhost:27017/tc",
+    "dbName": "tc",
+    "dbConfig": {
+      "useUnifiedTopology": true,
+      "useNewUrlParser": true
+    },
+    "seed": false,
+    "debug": true
+  },
+  "local": {
+    "database": "",
+    "dbName": "tc",
+    "seed": true,
+    "dbConfig": {
+      "useUnifiedTopology": true,
+      "useNewUrlParser": true
+    }
+  }
+}
