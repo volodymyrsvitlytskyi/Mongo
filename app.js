@@ -21,16 +21,15 @@ async function run() {
   articleCollection = connection.get().collection('articles');
   studentsCollection = connection.get().collection('students');
 
-  // await example1();
-  // await example2();
-  // await example3();
-  // await example4();
+  await example1();
+  await example2();
+  await example3();
+  await example4();
   await example5();
   await example6();
   await example7();
   await example8();
   await example9();
-  // await example10(); // this one was wrong
   await example10();
   await example11();
   await example12();
@@ -44,54 +43,53 @@ async function run() {
 // #### Users
 
 // - Create 2 users per department (a, b, c)
-// async function example1() {
-//   try {
-//     const departments = ['a', 'a', 'b', 'b', 'c', 'c'];
-//     const users = departments.map(d => ({department: d})).map(mapUser);
-//     try {
-//       const {result} = await userCollection.insertMany(users);
-//       console.log(`Added ${result.n} users`);
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   } catch (err) {
-//     console.error(err);
-//   }
-// }
+async function example1() {
+  try {
+    const departments = ['a', 'a', 'b', 'b', 'c', 'c'];
+    const users = departments.map(d => ({department: d})).map(mapUser);
+    try {
+      const {result} = await userCollection.insertMany(users);
+      console.log(`Added ${result.n} users`);
+    } catch (err) {
+      console.error(err);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 // - Delete 1 user from department (a)
 
-// async function example2() {
-//   try {
-//     const result = await userCollection.deleteOne({department: 'a'});
-//     console.log(`Removed ${result.n} users`);
-//   } catch (err) {
-//     console.error(err);
-//   }
-// }
+async function example2() {
+  try {
+    const {result} = await userCollection.deleteOne({department: 'a'});
+    console.log(`Removed ${result.n} users`);
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 // - Update firstName for users from department (b)
 
-// async function example3() {
-//   try {
-//     const [query, update] = [{department: 'b'}, {$set: {firstName: getRandomFirstName()}}];
-//     const result = await userCollection.updateMany(query, update);
-//     console.log('---------Update-------');
-//     console.log('result', result);
-//   } catch (err) {
-//     console.error(err);
-//   }
-// }
+async function example3() {
+  try {
+    const [query, update] = [{department: 'b'}, {$set: {firstName: getRandomFirstName()}}];
+    const {result} = await userCollection.updateMany(query, update);
+    console.log(`Updated ${result.n} users`);
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 // - Find all users from department (c)
-// async function example4() {
-//   try {
-//  const result = await userCollection.find({department:"c"})
-// await result.forEach(doc => console.log(doc));
-//   } catch (err) {
-//     console.error(err);
-//   }
-// }
+async function example4() {
+  try {
+    const result = await userCollection.find({department: 'c'});
+    await result.forEach(doc => console.log(doc));
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 async function example5() {
   try {
