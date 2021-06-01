@@ -89,6 +89,8 @@ async function example4() {
   }
 }
 
+//- Create 5 articles per each type (a, b, c)
+
 async function example5() {
   try {
     const types = ['a', 'b', 'c'].map(type => Array(5).fill(type)).flat();
@@ -103,6 +105,8 @@ async function example5() {
     console.error(err);
   }
 }
+
+//- Find articles with type a, and update tag list with next value [‘tag1-a’, ‘tag2-a’, ‘tag3’]
 
 async function example6() {
   try {
@@ -120,6 +124,8 @@ async function example6() {
   }
 }
 
+//- Add tags [‘tag2’, ‘tag3’, ‘super’] to other articles except articles from type a
+
 async function example7() {
   try {
     const {result} = await articleCollection.updateMany(
@@ -136,6 +142,7 @@ async function example7() {
   }
 }
 
+//- Find all articles that contains tags [tag2, tag1-a]
 //picks documents if any of two tag values included in array, if I got it right
 async function example8() {
   try {
@@ -148,6 +155,8 @@ async function example8() {
     console.log(error);
   }
 }
+
+//- Pull [tag2, tag1-a] from all articles
 
 async function example9() {
   try {
