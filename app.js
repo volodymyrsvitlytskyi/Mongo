@@ -1,8 +1,6 @@
 'use strict';
 
 const {mapUser, getRandomFirstName, mapArticle} = require('./util');
-// const json = require('./students.json');
-// const students = JSON.parse(...json);
 
 // db connection and settings
 const connection = require('./config/connection');
