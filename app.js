@@ -313,7 +313,7 @@ async function example15() {
 
       {$set: {status: 'marked'}}
     );
-    console.log(`Updated ${result.n} students as Marked`);
+    console.log(`Updated ${result.n} students as marked`);
   } catch (error) {
     console.log(error);
   }
